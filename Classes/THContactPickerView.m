@@ -145,11 +145,11 @@
     [super setBackgroundColor:backgroundColor];
 }
 
-- (void)addContact:(id)contact withName:(NSString *)name {
+- (UIView *)addContact:(id)contact withName:(NSString *)name {
     id contactKey = [NSValue valueWithNonretainedObject:contact];
     if ([self.contactKeys containsObject:contactKey]){
         NSLog(@"Cannot add the same object twice to ContactPickerView");
-        return;
+        return nil;
     }
     
     if (self.contactKeys.count == 1 && self.limitToOne){
@@ -189,6 +189,9 @@
 		[self scrollToBottomWithAnimation:YES];
 		// after scroll animation [self selectTextView] will be called
 	}];
+    
+    // Return the bubble
+    return contactView;
 }
 
 - (void)selectTextView {
@@ -285,6 +288,7 @@
     }
 }
 
+// This will be public!
 - (void)removeContactView:(THContactView *)contactView {
     id contact = [self contactForContactView:contactView];
     
