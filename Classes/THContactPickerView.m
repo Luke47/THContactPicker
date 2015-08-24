@@ -451,7 +451,7 @@
 	// Adjust scroll view content size
 	CGRect frame = self.bounds;
 	CGFloat maxFrameHeight = self.maxNumberOfLines * self.lineHeight + 2 * self.verticalPadding; // limit frame to two lines of content
-    CGFloat newHeight = maxFrameHeight; //(_lineCount + 1) * self.lineHeight + 2 * self.verticalPadding;
+    CGFloat newHeight = (_lineCount + 1) * self.lineHeight + 2 * self.verticalPadding;
 	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, newHeight);
 	
 	// Adjust frame of view if necessary
