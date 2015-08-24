@@ -14,7 +14,7 @@
 @protocol THContactPickerDelegate <NSObject>
 
 - (void)contactPickerTextViewDidChange:(NSString *)textViewText;
-- (void)contactPickerDidRemoveContact:(id)contact;
+- (void)contactPickerDidRemoveContactView:(UIView *)contact;
 - (void)contactPickerDidResize:(THContactPickerView *)contactPickerView;
 - (BOOL)contactPickerTextFieldShouldReturn:(UITextField *)textField;
 
