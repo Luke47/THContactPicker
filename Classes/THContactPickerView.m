@@ -16,13 +16,13 @@
 	CGRect _frameOfLastView;
 }
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+
+
 @property (nonatomic, strong) NSMutableDictionary *contacts;	// Dictionary to store THContactViews for each contacts
 @property (nonatomic, strong) NSMutableArray *contactKeys;      // an ordered set of the keys placed in the contacts dictionary
 @property (nonatomic, strong) UILabel *placeholderLabel;
 @property (nonatomic, strong) UILabel *promptLabel;
 @property (nonatomic, assign) CGFloat lineHeight;
-@property (nonatomic, strong) THContactTextField *textField;
 @property (nonatomic, strong) THContactViewStyle *contactViewStyle;
 @property (nonatomic, strong) THContactViewStyle *contactViewSelectedStyle;
 
@@ -455,7 +455,10 @@
 	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, newHeight);
 	
 	// Adjust frame of view if necessary
-	newHeight = maxFrameHeight;
+    if (newHeight > maxFrameHeight) {
+        newHeight = maxFrameHeight;
+    }
+    
 	if (self.frame.size.height != newHeight){
 		// Adjust self height
 		CGRect selfFrame = self.frame;
